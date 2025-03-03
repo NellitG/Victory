@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-AUTH_USER_MODEL = 'club_management.CustomUser'
+AUTH_USER_MODEL = 'club_management.User'
 # Application definition
 
 INSTALLED_APPS = [
