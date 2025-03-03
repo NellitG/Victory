@@ -1,7 +1,8 @@
 import os
 import django
-from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.db import models
+
 
 class CustomUser(AbstractUser):
     ROLE_CHOICES = [
@@ -15,7 +16,7 @@ class CustomUser(AbstractUser):
         return f"{self.username} - {self.role}"
 
 # Ensure Django settings are configured
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'victory_club.settings')
+# os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'victory_club.settings')
 
 # Student Model
 class Student(models.Model):
