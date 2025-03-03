@@ -13,7 +13,7 @@ def register(request):
             return redirect('dashboard')  # Redirect after signup
     else:
         form = UserCreationForm()
-    return render(request, 'register.html', {'form': form})
+    return render(request, 'auth/register.html', {'form': form})
 
 # User Login View
 def login_view(request):
