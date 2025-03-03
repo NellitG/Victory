@@ -5,7 +5,6 @@ from django.contrib.auth.models import User
 
 # Ensure Django settings are configured
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'victory_club.settings')
-django.setup()
 
 # Student Model
 class Student(models.Model):
