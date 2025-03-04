@@ -7,6 +7,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .forms import CustomUserCreationForm
 from .models import User
+from django.http import HttpResponseForbidden
 
 # User Registration View
 def register(request):
@@ -73,8 +74,11 @@ def club_list(request):
 #Create a new club
 @login_required
 def club_create(request):
+    if not request.user.is_superuser:
+        return HttpResponseForbidden("You do not have permission to create a club.")
+    
     if request.method == 'POST':
-        form = ClubForm(request.POST)
+        form = ClubForm(request.POST) #instance with a request data
         if form.is_valid():
             form.save()
             return redirect('club_list')
@@ -82,7 +86,7 @@ def club_create(request):
         form = ClubForm()
     return render(request, 'club_management/club_form.html', {'form': form})
 
-#Update an exxisting club
+#Update an existing club
 @login_required
 def club_update(request, pk):
     club = get_object_or_404(Club, pk=pk)
