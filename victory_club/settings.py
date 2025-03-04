@@ -25,6 +25,8 @@ SECRET_KEY = 'django-insecure-ril&jedu4b4c&dm-&4l400px4)l=8odg31nq_3e(vvla__19vd
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+LOGIN_URL = '/login/'
+
 ALLOWED_HOSTS = []
 
 AUTH_USER_MODEL = 'club_management.User'
