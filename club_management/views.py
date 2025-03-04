@@ -12,13 +12,13 @@ from django.http import HttpResponseForbidden
 # User Registration View
 def register(request):
     if request.method == 'POST':
-        form = CustomUserCreationForm(request.POST)
-        if form.is_valid():
+        form = CustomUserCreationForm(request.POST) #customusercreationform instance to request data 
+        if form.is_valid(): #Check if form is valid
             user = form.save()
             login(request, user)
             return redirect('dashboard')  # Redirect after signup
     else:
-        form = CustomUserCreationForm()
+        form = CustomUserCreationForm() #creates an empty instance of the form
     return render(request, 'auth/register.html', {'form': form, 'user': request.user})
 
 # User Login View
