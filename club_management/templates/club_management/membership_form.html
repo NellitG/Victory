@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Membership</title>
+    
+    <!-- ✅ Load Tailwind CSS from CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+    <nav class="bg-blue-600 text-white p-4">
+        <div class="container mx-auto">
+            <h1 class="text-2xl font-bold">Victory School - Add Membership</h1>
+        </div>
+    </nav>
+
+    <div class="max-w-4xl mx-auto mt-6 bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-2xl font-semibold mb-4">Add Membership</h2>
+
+        <form method="POST" class="space-y-4">
+            {% csrf_token %}
+            
+            <div>
+                <label class="block font-medium">Student:</label>
+                {{ form.student }}
+            </div>
+            
+            <div>
+                <label class="block font-medium">Club:</label>
+                {{ form.club }}
+            </div>
+            
+            <div>
+                <label class="block font-medium">Role:</label>
+                {{ form.role }}
+            </div>
+
+            <button type="submit" class="bg-green-500 hover:bg-green-700 text-white px-4 py-2 rounded-lg">
+                Save
+            </button>
+        </form>
+
+        <a href="{% url 'membership_list' %}" class="text-blue-600 hover:underline mt-4 inline-block">Back to Memberships</a>
+    </div>
+
+</body>
+</html>

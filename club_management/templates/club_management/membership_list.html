@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memberships</title>
+    
+    <!-- ✅ Load Tailwind CSS from CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+    <nav class="bg-blue-600 text-white p-4">
+        <div class="container mx-auto">
+            <h1 class="text-2xl font-bold">Victory School Memberships</h1>
+        </div>
+    </nav>
+
+    <div class="max-w-5xl mx-auto mt-6 bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-2xl font-semibold mb-4">Membership List</h2>
+
+        {% if user.is_staff %}
+            <a href="{% url 'membership_create' %}" class="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-lg mb-4 inline-block">
+                Add Membership
+            </a>
+        {% endif %}
+
+        <table class="w-full border-collapse border border-gray-300 mt-4">
+            <thead>
+                <tr class="bg-gray-200">
+                    <th class="border border-gray-300 px-4 py-2">Student</th>
+                    <th class="border border-gray-300 px-4 py-2">Club</th>
+                    <th class="border border-gray-300 px-4 py-2">Role</th>
+                    {% if user.is_staff %}
+                        <th class="border border-gray-300 px-4 py-2">Actions</th>
+                    {% endif %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for membership in memberships %}
+                <tr class="bg-white hover:bg-gray-100">
+                    <td class="border border-gray-300 px-4 py-2">{{ membership.student.name }}</td>
+                    <td class="border border-gray-300 px-4 py-2">{{ membership.club.name }}</td>
+                    <td class="border border-gray-300 px-4 py-2">{{ membership.role }}</td>
+                    {% if user.is_staff %}
+                        <td class="border border-gray-300 px-4 py-2">
+                            <form action="{% url 'membership_delete' membership.pk %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="text-red-600 hover:underline">Remove</button>
+                            </form>
+                        </td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

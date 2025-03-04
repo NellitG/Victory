@@ -52,6 +52,11 @@ class Membership(models.Model):
     join_date = models.DateField(auto_now_add=True)
     exit_date = models.DateField(null=True, blank=True)  # To track when a student leaves
     role = models.CharField(max_length=10, choices=ROLE_CHOICES, default='General')
+    PAYMENT_STATUS= [
+        ('Paid', 'Paid'),
+        ('pending', 'Pending'),
+    ]
+    payment_status = models.CharField(max_length=10, choices=PAYMENT_STATUS, default='Pending')
     
     def __str__(self):
         return f"{self.student.name} - {self.club.name} ({self.role})"
