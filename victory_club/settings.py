@@ -61,7 +61,7 @@ ROOT_URLCONF = 'victory_club.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'club_management/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
