@@ -55,7 +55,7 @@ def patron_dashboard(request):
     return render(request, 'patron_dashboard.html')
 
 @login_required
-def student_dashboard(request):
+def admin_dashboard(request):
     return render(request, 'admin_dashboard.html')
 
 @login_required
