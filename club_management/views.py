@@ -9,6 +9,7 @@ from .forms import CustomUserCreationForm
 from .models import User
 from django.http import HttpResponseForbidden
 
+
 # User Registration View
 def register(request):
     if request.method == 'POST':
