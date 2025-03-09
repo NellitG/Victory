@@ -13,7 +13,11 @@ Django Admin Panel for managing users, clubs, and payments
 [Blank diagram.pdf](https://github.com/user-attachments/files/19084793/Blank.diagram.pdf)
 
 
-![login](https://github.com/user-attachments/assets/cbf63379-4ca2-468b-80f3-318bbeb749a8)
+![login](https://github.com/user-attachments/assets/cbf63379-4ca2-468b-80f3-
+318bbeb749a8)
+
+
+NB::Frontend still in development 
 
 
 ![register](https://github.com/user-attachments/assets/8c41cd00-650c-46b9-beaa-7864ca473da2)
